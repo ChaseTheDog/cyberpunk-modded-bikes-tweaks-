@@ -1,0 +1,59 @@
+UIIcon.bmw_Logo:
+  $type: UIIcon_Record
+  atlasResourcePath: r"ctrlsec\manufacturer\vehicle_manufacturers.inkatlas"
+  atlasPartName: n"bmw"
+
+Vehicle.bmw:
+  $type: VehicleManufacturer_Record
+  enumName: bmw_Logo
+
+Vehicle.bmw_m1000rr_data:
+  $type: VehicleUIData
+  productionYear: 2022
+  horsepower: 755
+  mass: 129
+  info: LocKey#bmw_m1000rr_info
+  driveLayout: LocKey#45371
+
+UIIcon.bmw_m1000rr_icon:
+  $type: UIIcon_Record
+  atlasResourcePath: base\assets\m1000rr_icon.inkatlas
+  atlasPartName: m1000rr
+  
+Vehicle.bmw_m1000rr:
+  manufacturer: Vehicle.bmw
+  $base: Vehicle.v_sportbike2_arch
+  appearanceName: arch_nemesis_basic_jackie
+  entityTemplatePath: base\vehicles\sportbike\v_sportbike2_bmw_m1000rr_basic_01.ent
+  displayName: bmw_m1000rr_name
+  bikeDriveModelData:
+   $base: Vehicle.v_sportbike2_arch_nemesis_inline0
+   center_of_mass_offset: { x: 0.0, y: 0.0, z: -0.15 }
+   wheelSetup:
+    $base: Vehicle.v_sportbike2_arch_nemesis_inline1
+    backPreset:
+     $base: Vehicle.v_sportbike2_arch_nemesis_inline3
+     wheelsVerticalOffset: -0,001
+     frictionMulLateral: 1
+     frictionMulLongitudinal: 1
+    frontPreset:
+     $base: Vehicle.v_v_sportbike2_arch_nemesis_inline2
+     wheelsVerticalOffset: -0,001
+     frictionMulLateral: 1
+     frictionMulLongitudinal: 1
+  player_audio_resource: v_mbike_yaiba_asmx_kusanagi_misfit
+  icon: UIIcon.bmw_m1000rr_icon
+  vehicleUIData: Vehicle.bmw_m1000rr_data
+
+Vehicle.bmw_m1000rr_purchasable:
+  $base: Vehicle.bmw_m1000rr
+Vehicle.bmw_m1000rr_purchasable.dealerAtlasPath: "base/assets/dealer_m1000rr.inkatlas"
+Vehicle.bmw_m1000rr_purchasable.dealerPartName: "1"
+Vehicle.bmw_m1000rr_purchasable.dealerPrice: 20000
+Vehicle.bmw_m1000rr_purchasable.dealerCred: 20
+
+Vehicle.vehicle_list.list:
+  - !append t"Vehicle.bmw_m1000rr_purchasable"
+
+Vehicle.vehicle_list.list:
+  - !append Vehicle.bmw_m1000rr
